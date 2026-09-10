@@ -70,6 +70,18 @@ cd unitree_rl_mjlab
 pip install -e .
 ```
 
+## A note on running over SSH:
+`train.py` imports something that requires a display to be present even if running headless. This means you may need 
+to install Xvfb: 
+```bash
+sudo apt-get update && sudo apt-get install -y xvfb
+```
+
+And then always prepend `xvfb-run` to your commands, like so:
+```bash
+xvfb-run python scripts/train.py Unitree-H2-Flat --env.scene.num-envs=4096
+```
+
 ## Summary
 
 After completing the above steps, you are ready to run the related programs in the virtual environment. If you encounter any issues, refer to the official documentation of each component or check if the dependencies are installed correctly.
